@@ -1,4 +1,22 @@
 // Initial rendering logic – to be refactored during the lab
+
+// Wishlist array for wishlist-related features
+// Each item in the wishlist is an object with three properties:
+//   id   - a unique number for the station
+//   name - the name of the station
+//   city - the city where the station is located
+// Example:
+//   { id: 1, name: "Central Park Station", city: "New York" }
+const wishlist = [
+  { id: 1, name: "Central Park Station", city: "New York" },
+  { id: 2, name: "Union Square Station", city: "San Francisco" },
+  { id: 3, name: "King's Cross", city: "London" },
+  { id: 4, name: "Shinjuku Station", city: "Tokyo" },
+  { id: 5, name: "Gare du Nord", city: "Paris" },
+  { id: 6, name: "Flinders Street", city: "Melbourne" },
+  { id: 7, name: "Berlin Hauptbahnhof", city: "Berlin" },
+  { id: 8, name: "Union Station", city: "Toronto" }
+];
 function addStations(stations) {
   // TODO: Refactor this loop using map() or forEach()
   for (let i = 0; i < stations.length; i++) {
