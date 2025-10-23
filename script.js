@@ -1,3 +1,21 @@
+// Search input and button event handler
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("search-input");
+  const searchBtn = document.getElementById("search-btn");
+  const searchFilter = document.getElementById("search-filter");
+  if (searchInput && searchBtn && searchFilter) {
+    const doSearch = () => {
+      searchStations(searchInput.value, searchFilter.value);
+    };
+    searchBtn.addEventListener("click", doSearch);
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        doSearch();
+      }
+    });
+    searchFilter.addEventListener("change", doSearch);
+  }
+});
 // Initial rendering logic – to be refactored during the lab
 
 // Wishlist array for wishlist-related features
@@ -19,9 +37,7 @@ const wishlist = [
 ];
 function addStations(stations) {
   // TODO: Refactor this loop using map() or forEach()
-  for (let i = 0; i < stations.length; i++) {
-    addStationElement(stations[i]);
-  }
+  stations.map(station => addStationElement(station));
 }
 
 // 🧪 TEAM FEATURES
@@ -33,8 +49,31 @@ function renderWishlist() {
 
 // ❌ Search Feedback
 function searchStations(query) {
-  // TODO: Filter stations array based on query
-  // TODO: Display error if none found
+  let results = stations.filter(station => {
+    const lowerQuery = query.toLowerCase();
+    return (
+      station.name.toLowerCase().includes(lowerQuery) ||
+      station.location.toLowerCase().includes(lowerQuery) ||
+      station.type.toLowerCase().includes(lowerQuery)
+    );
+  });
+
+  // Filter by type if dropdown is selected
+  if (arguments.length > 1 && arguments[1]) {
+    results = results.filter(station => station.type === arguments[1]);
+  }
+
+  const feedbackSection = document.getElementById("search-feedback");
+  feedbackSection.innerHTML = "";
+
+  const list = document.getElementById("station-list");
+  list.innerHTML = "";
+
+  if (results.length === 0) {
+    feedbackSection.textContent = `No stations found for "${query}".`;
+  } else {
+    results.forEach(addStationElement);
+  }
 }
 
 // 🌟 Random Featured Station
