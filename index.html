@@ -8,8 +8,15 @@
 </head>
 <body>
   <header>
-    <h1>Lantana Alliance – Park Directory</h1>
-    <p>Welcome to our interactive green space guide 🌱</p>
+    <h1>
+      <span class="nature-emoji">🌳</span>
+      Lantana Alliance – Park Directory
+      <span class="nature-emoji">🌼</span>
+    </h1>
+    <p>
+      Welcome to our interactive green space guide
+      <span class="nature-emoji">🦋🌱🍃</span>
+    </p>
   </header>
 
   <main>
@@ -19,17 +26,33 @@
 
     <!-- 💌 Wishlist Section -->
     <section id="wishlist">
-      <h2>Wishlist Items</h2>
+  <h2><span class="nature-emoji">💌</span> Wishlist Items <span class="nature-emoji">🌿</span></h2>
       <!-- Wishlist will be injected here -->
     </section>
 
     <!-- 🌟 Featured Station Section -->
     <section id="featured-station">
-      <h2>Featured Station</h2>
+  <h2><span class="nature-emoji">🌟</span> Featured Station <span class="nature-emoji">🌳</span></h2>
       <!-- Random station feature will display here -->
     </section>
 
-    <!-- 🔍 Search Feedback Section -->
+    <!-- 🔍 Search Section -->
+    <section id="search-section">
+      <input type="text" id="search-input" placeholder="Search stations..." />
+  <select id="search-filter" aria-label="Filter by station type">
+        <option value="">All Types</option>
+        <option value="Playground">Playground</option>
+        <option value="Native Garden">Native Garden</option>
+        <option value="Walking Path">Walking Path</option>
+        <option value="Lookout Point">Lookout Point</option>
+      </select>
+      <button id="search-btn">
+        Search
+        <span class="leaf leaf1">🍃</span>
+        <span class="leaf leaf2">🍂</span>
+        <span class="leaf leaf3">🌿</span>
+      </button>
+    </section>
     <section id="search-feedback">
       <!-- Search errors will appear here -->
     </section>
@@ -41,7 +64,7 @@
 
     <!-- 🏙️ Grouped Stations -->
     <section id="grouped-stations">
-      <h2>Stations Grouped by City</h2>
+  <h2><span class="nature-emoji">🏙️</span> Stations Grouped by City <span class="nature-emoji">🌲</span></h2>
       <!-- Grouped content will render here -->
     </section>
   </main>
